@@ -3,6 +3,7 @@ import 'package:desenvolvimento_mobile/Pages/speeddial_page.dart';
 import 'package:desenvolvimento_mobile/Pages/stateful_lifecyle.dart';
 import 'package:flutter/material.dart';
 
+import 'drawer_navigation_page.dart';
 import 'future_builder_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -101,6 +102,22 @@ class HomePage extends StatelessWidget {
                   );
                 },
                 child: Text("SpeedDial"),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return DrawerNavigationPage();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("DrawerNavigation"),
+                ),
               ),
             ],
           ),
