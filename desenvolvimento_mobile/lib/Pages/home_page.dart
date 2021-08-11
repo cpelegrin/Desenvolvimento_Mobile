@@ -1,4 +1,5 @@
 import 'package:desenvolvimento_mobile/Pages/second_page.dart';
+import 'package:desenvolvimento_mobile/Pages/speeddial_page.dart';
 import 'package:desenvolvimento_mobile/Pages/stateful_lifecyle.dart';
 import 'package:flutter/material.dart';
 
@@ -87,6 +88,19 @@ class HomePage extends StatelessWidget {
                   },
                   child: Text("FutureBuilder"),
                 ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return SpeedDialPage();
+                      },
+                    ),
+                  );
+                },
+                child: Text("SpeedDial"),
               ),
             ],
           ),
