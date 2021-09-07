@@ -1,5 +1,6 @@
 import 'package:desenvolvimento_mobile/Pages/second_page.dart';
 import 'package:desenvolvimento_mobile/Pages/speeddial_page.dart';
+import 'package:desenvolvimento_mobile/Pages/sqlite_page.dart';
 import 'package:desenvolvimento_mobile/Pages/stateful_lifecyle.dart';
 import 'package:flutter/material.dart';
 
@@ -146,12 +147,12 @@ class HomePage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (BuildContext context) {
-                        return SpeedDialPage();
+                        return SQLitePage();
                       },
                     ),
                   );
                 },
-                child: Text("b"),
+                child: Text("SQLite"),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
