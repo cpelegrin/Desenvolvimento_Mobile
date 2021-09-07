@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'drawer_navigation_page.dart';
 import 'future_builder_page.dart';
+import 'shared_pref_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage() : super();
@@ -117,6 +118,55 @@ class HomePage extends StatelessWidget {
                     );
                   },
                   child: Text("DrawerNavigation"),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return SharedPrefPage();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("SharedPreferences"),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return SpeedDialPage();
+                      },
+                    ),
+                  );
+                },
+                child: Text("b"),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return DrawerNavigationPage();
+                        },
+                      ),
+                    );
+                  },
+                  child: Text("a"),
                 ),
               ),
             ],
