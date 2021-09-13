@@ -30,7 +30,9 @@ dependencies:
   path: ^1.8.0
 
   form_field_validator: ^1.1.0
+
   firebase_core: ^1.6.0
+  firebase_auth: ^3.1.1
 
 
   # The following adds the Cupertino Icons font to your application.
