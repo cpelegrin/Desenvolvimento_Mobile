@@ -37,23 +37,21 @@ class SpeedDialPage extends StatelessWidget {
                 context: context, builder: (context) => dialog),
           ),
           SpeedDialChild(
-              child: Icon(Icons.accessibility_new_outlined),
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.green,
-              label: 'second',
-              onTap: () {
-                final snackBar = SnackBar(
-                  content: Text('Text label'),
-                  action: SnackBarAction(
-                    label: 'Action',
-                    onPressed: () {},
-                  ),
-                );
-
-                // Find the Scaffold in the widget tree and use
-                // it to show a SnackBar.
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              }),
+            child: Icon(Icons.accessibility_new_outlined),
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.green,
+            label: 'second',
+            onTap: () {
+              final snackBar = SnackBar(
+                content: Text('Text label'),
+                action: SnackBarAction(
+                  label: 'Action',
+                  onPressed: () {},
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+          ),
         ],
       ),
     );

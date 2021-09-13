@@ -1,4 +1,5 @@
 import 'package:desenvolvimento_mobile/Pages/home_page.dart';
+import 'package:desenvolvimento_mobile/Pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class _SplashPage extends State<SplashPage> {
               context,
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return HomePage();
+                  return LoginPage();
                 },
               ),
             );
