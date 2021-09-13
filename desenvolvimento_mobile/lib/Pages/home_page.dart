@@ -5,6 +5,7 @@ import 'package:desenvolvimento_mobile/Pages/stateful_lifecyle.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_navigation_page.dart';
+import 'firestore_page.dart';
 import 'future_builder_page.dart';
 import 'shared_pref_page.dart';
 
@@ -162,12 +163,12 @@ class HomePage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return DrawerNavigationPage();
+                          return FirestorePage();
                         },
                       ),
                     );
                   },
-                  child: Text("a"),
+                  child: Text("Firestore"),
                 ),
               ),
             ],
