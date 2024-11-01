@@ -7,6 +7,8 @@ class FutureBuilderPage extends StatefulWidget {
 
 class _FutureBuilderPageState extends State<FutureBuilderPage> {
   Future<String>? delivery;
+  var erro = false;
+  bool enableReiniciar = true;
 
   @override
   Widget build(BuildContext context) {
@@ -27,21 +29,54 @@ class _FutureBuilderPageState extends State<FutureBuilderPage> {
                           delivery = comprarPizza();
                         });
                       },
-                      child: Text("Pedir Pizza")),
+                      child: const Text("Pedir Pizza")),
                 ),
-                ElevatedButton(onPressed: () {}, child: Text("Simular Erro")),
+                ElevatedButton(
+                    onPressed: () {
+                      erro = true;
+                    },
+                    child: const Text("Simular Erro")),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      onPressed: enableReiniciar
+                          ? () {
+                              enableReiniciar = false;
+                              delivery = null;
+                              setState(() {});
+                            }
+                          : null,
+                      child: const Text("Reiniciar")),
+                ),
               ],
             ),
+            SizedBox(height: 250),
             delivery == null
-                ? Text("Nenhuma Pizza Comprada")
+                ? const Text(
+                    "Nenhuma Pizza Comprada",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 36,
+                    ),
+                  )
                 : FutureBuilder(
                     future: delivery,
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
-                        return Text("O Motoboy Caiu");
-                      }
-                      if (snapshot.hasData) {
-                        return Image.asset("pizza.jpg");
+                        return const Text("O Motoboy Caiu",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 36,
+                            ));
+                      } else if (snapshot.hasData) {
+                        if (erro) {
+                          return const Text("O Motoboy Caiu, Sua pizza já era!",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 36,
+                              ));
+                        }
+                        return Image.asset("assets/pizza.jpg");
                       }
                       return CircularProgressIndicator();
                     })
@@ -53,6 +88,11 @@ class _FutureBuilderPageState extends State<FutureBuilderPage> {
 
   Future<String> comprarPizza() async {
     // Imagine that this function is fetching user info from another service or database.
-    return Future.delayed(const Duration(seconds: 10), () => "Pizza saindo");
+    return Future.delayed(const Duration(seconds: 10), () {
+      setState(() {
+        enableReiniciar = true;
+      });
+      return "Pizza saindo";
+    });
   }
 }
